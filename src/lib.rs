@@ -234,8 +234,10 @@ pub mod grid_print {
                         column_widths[i] = self.grid[i][j].chars.len();
                     }
                 }
-                if self.x_labels[i].chars.len() > column_widths[i] {
-                    column_widths[i] = self.x_labels[i].chars.len();
+                if self.draw_x_labels && self.x_labels.len() > i {
+                    if self.x_labels[i].chars.len() > column_widths[i] {
+                        column_widths[i] = self.x_labels[i].chars.len();
+                    }
                 }
             }
             for n in &column_widths {
