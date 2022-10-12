@@ -254,7 +254,7 @@ pub mod grid_print {
             // Draw the top border.
             if self.draw_x_labels {
                 if self.draw_y_labels {
-                    out.push_char_rep(' ', label_width + 1);
+                    out.push_char_rep(' ', label_width + 2);
                 }
                 out.push_char_c('│', self.line_color);
                 for i in 0..self.grid.len() {
@@ -279,7 +279,7 @@ pub mod grid_print {
                 }
                 out.push_char('\n');
                 if self.draw_y_labels {
-                    out.push_char_rep_c('─', self.line_color, label_width + 1);
+                    out.push_char_rep_c('─', self.line_color, label_width + 2);
                     out.push_char_c('╆', self.line_color);
                 } else {
                     out.push_char_c('┢', self.line_color);
@@ -301,7 +301,7 @@ pub mod grid_print {
                 out.push_char('\n');
             } else {
                 if self.draw_y_labels {
-                    out.push_char_rep_c('─', self.line_color, label_width + 1);
+                    out.push_char_rep_c('─', self.line_color, label_width + 2);
                     out.push_char_c('┲', self.line_color);
                 } else {
                     out.push_char_c('┏', self.line_color);
@@ -326,7 +326,7 @@ pub mod grid_print {
             // Draw the rows.
             for y in 0..self.grid[0].len() {
                 if self.draw_y_labels {
-                    let pad_a = label_width - self.y_labels[y].chars.len();
+                    let pad_a = label_width - self.y_labels[y].chars.len() + 1;
                     out.push_char_rep(' ', pad_a);
                     out.push_colored_string(&self.y_labels[y]);
                     out.push_char(' ');
@@ -358,7 +358,7 @@ pub mod grid_print {
                 out.push_char('\n');
                 if y < self.grid[0].len() - 1 {
                     if self.draw_y_labels {
-                        out.push_char_rep_c('─', self.line_color, label_width + 1);
+                        out.push_char_rep_c('─', self.line_color, label_width + 2);
                         out.push_char_c('╂', self.line_color);
                     } else {
                         out.push_char_c('┠', self.line_color);
@@ -383,7 +383,7 @@ pub mod grid_print {
 
             // Draw the bottom border.
             if self.draw_y_labels {
-                out.push_char_rep_c('─', self.line_color, label_width + 1);
+                out.push_char_rep_c('─', self.line_color, label_width + 2);
                 out.push_char_c('┺', self.line_color);
             } else {
                 out.push_char_c('┗', self.line_color);
